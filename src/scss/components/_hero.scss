@@ -1,0 +1,312 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  @include adaptiv-value('width', 5340, 3421, 1);
+  @include adaptiv-value('height', 876, 800, 1);
+  &::before {
+    @include pseudo;
+    width: 100%;
+    height: 85px;
+    filter: blur(20px);
+    background: #fff;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    z-index: 1000;
+  }
+  // .hero__cloud
+  &__cloud {
+    top: 50px;
+    @include adaptiv-value('left', 70, 17, 1);
+    @include mobile {
+      top: -40px;
+    }
+  }
+  &__scene {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #fff 0%, #e4eaff 46%, #b6ccb6 100%);
+    position: relative;
+    z-index: 1;
+    //transform: translateX(calc(-25% + 100vw));
+    &::before {
+      @include pseudo;
+      position: absolute;
+      width: 843px;
+      height: 805px;
+      border-radius: 100%;
+      background: radial-gradient(50% 50% at 50% 50%, rgb(255, 248, 181) 0%, rgb(255, 181, 181) 100%);
+      filter: blur(300px);
+      bottom: -80px;
+      left: -11px;
+      pointer-events: none;
+      z-index: -1;
+    }
+    &::after {
+      @include pseudo;
+      position: absolute;
+      width: 889px;
+      height: 898px;
+      border-radius: 100%;
+      background: rgba(179, 60, 86, 0.2);
+      filter: blur(300px);
+      bottom: -233px;
+      right: -15px;
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+  img {
+    position: absolute;
+  }
+  // .hero__sun
+  &__sun {
+    @include adaptiv-value('width', 296, 204, 1);
+    @include adaptiv-value('top', 328, 413, 1);
+    @include adaptiv-value('left', 375, 144, 1);
+  }
+  // .hero__mount
+  &__mount {
+    &--front {
+      @include adaptiv-value('width', 1121, 774, 1);
+      @include adaptiv-value('left', 160, 100, 1);
+      @include adaptiv-value('bottom', 43, 30, 1);
+    }
+    &--back {
+      @include adaptiv-value('width', 1073, 750, 1);
+      @include adaptiv-value('left', 183, 115, 1);
+      @include adaptiv-value('bottom', 44, 30, 1);
+    }
+  }
+  // .hero__bird
+  &__bird {
+    @include adaptiv-value('width', 308, 224, 1);
+    @include adaptiv-value('top', 257, 395, 1);
+    @include adaptiv-value('left', 881, 886, 1);
+  }
+  // .hero__trees
+  &__trees {
+    &--front {
+      @include adaptiv-value('width', 328, 226, 1);
+      @include adaptiv-value('left', 1919, 1365, 1);
+      @include adaptiv-value('bottom', 34, 24, 1);
+    }
+    &--back {
+      @include adaptiv-value('width', 637, 440, 1);
+      @include adaptiv-value('left', 1736, 1257, 1);
+      @include adaptiv-value('bottom', 67, 47, 1);
+    }
+  }
+  // .hero__moose
+  &__moose {
+    @include adaptiv-value('width', 406, 280, 1);
+    @include adaptiv-value('left', 2167, 1536, 1);
+    @include adaptiv-value('bottom', 34, 24, 1);
+  }
+  // .hero__clouds
+  &__clouds {
+    @include adaptiv-value('width', 1158, 734, 1);
+    @include adaptiv-value('top', 211, 344, 1);
+    @include adaptiv-value('right', 1434, 807, 1);
+  }
+  // .hero__birds
+  &__birds {
+    @include adaptiv-value('width', 934, 734, 1);
+    @include adaptiv-value('top', 126, 344, 1);
+    @include adaptiv-value('right', 1479, 767, 1);
+  }
+  // .hero__month
+  &__month {
+    @include adaptiv-value('width', 289, 200, 1);
+    @include adaptiv-value('top', 0, 308, 1);
+    @include adaptiv-value('right', 1479, 780, 1);
+  }
+  // .hero__stars
+  &__stars {
+    @include adaptiv-value('width', 1280, 882, 1);
+    @include adaptiv-value('top', 0, 123, 1);
+    @include adaptiv-value('right', 94, -189, 1);
+  }
+  // .hero__fox
+  &__fox {
+    @include adaptiv-value('width', 427, 295, 1);
+    @include adaptiv-value('right', 1700, 931, 1);
+    @include adaptiv-value('bottom', -25, -32, 1);
+  }
+  // .hero__tree
+  &__tree {
+    &--front {
+      @include adaptiv-value('width', 312, 272, 1);
+      @include adaptiv-value('top', 0, 40, 1);
+      @include adaptiv-value('right', 0, -120, 1);
+    }
+    &--back {
+      @include adaptiv-value('width', 211, 152, 1);
+      @include adaptiv-value('top', 175, 320, 1);
+      @include adaptiv-value('right', 180, 72, 1);
+    }
+  }
+  // .hero__hare
+  &__hare {
+    @include adaptiv-value('width', 538, 370, 1);
+    @include adaptiv-value('right', 80, 0, 1);
+    @include adaptiv-value('bottom', 110, 90, 1);
+    transform: rotate(23deg);
+  }
+  // .hero__grass
+  &__grass {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+  &.aos-animate {
+    .hero__scene {
+      animation-name: heroTranslate;
+      animation-duration: calc(var(--animation-duration-index) * var(--animation-duration-scene));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      will-change: transform;
+    }
+    // .hero__sun
+    .hero__sun {
+      animation-name: sunHeroTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 1.6));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      @include mobile {
+        animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 0.6));
+      }
+    }
+    // .hero__bird
+    .hero__bird {
+      animation-name: birdHeroTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 7));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      @include mobile {
+        animation-name: birdHeroTranslateMobile;
+        animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 5));
+      }
+    }
+    // .hero__moose
+    .hero__moose {
+      animation-name: mooseHeroTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 6));
+      animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 6));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      @include mobile {
+        animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 2.5));
+      }
+    }
+    // .hero__fox
+    .hero__fox {
+      animation-name: foxHeroTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 8));
+      animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 2.2));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      @include mobile {
+        animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 1.8));
+      }
+    }
+    // .hero__hare
+    .hero__hare {
+      animation-name: hareHeroTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 4.2));
+      animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 1.3));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      @include mobile {
+        animation-name: hareHeroTranslateMobile;
+        animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 4.2));
+        animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 1.3));
+      }
+    }
+    // .hero__month
+    .hero__month {
+      animation-name: monthHeroTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 2.5));
+      animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 1.65));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      @include mobile {
+        animation-name: monthHeroTranslateMobile ;
+        animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 4));
+        animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 1.3));
+      }
+    }
+  }
+}
+
+@keyframes heroTranslate {
+  to {
+    transform: translateX(calc(-100% + 100vw));
+  }
+}
+@keyframes birdHeroTranslate {
+  to {
+    transform: translate(-270px, -110px);
+  }
+}
+@keyframes birdHeroTranslateMobile {
+  to {
+    transform: translate(-500px, -30px);
+  }
+}
+@keyframes sunHeroTranslate {
+  25% {
+    transform: translate(1310px, -200px);
+  }
+  55% {
+    transform: translate(2210px, -400px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(2810px, -400px);
+    opacity: 0;
+  }
+}
+@keyframes mooseHeroTranslate {
+  to {
+    transform: translate(180px, 0px);
+  }
+}
+@keyframes foxHeroTranslate {
+  to {
+    transform: translate(0, -80px);
+  }
+}
+@keyframes monthHeroTranslate {
+  to {
+    transform: translate(1680px, 110px);
+  }
+}
+@keyframes monthHeroTranslateMobile {
+  50% {
+    transform: translate(380px, 55px);
+  }
+  to {
+    transform: translate(740px, 110px);
+    opacity: 0;
+  }
+}
+@keyframes hareHeroTranslate {
+  to {
+    transform: translate(-300px, -10px) rotate(31deg);
+  }
+}
+@keyframes hareHeroTranslateMobile {
+  to {
+    transform: translate(-30px, -10px) rotate(31deg);
+  }
+}

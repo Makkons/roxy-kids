@@ -1,0 +1,271 @@
+.guest {
+  width: 100%;
+  @include adaptiv-value('height', 1276, 800, 1);
+  background: linear-gradient(180deg,#f1f8f9 0%, #f1f8f9 20%,  #fff 40%, #ECF5F6 70%, #B8C69A 90%);
+  overflow: hidden;
+  position: relative;
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-width: 1440px;
+    z-index: 1;
+    //transform: translateX(calc(-100% + 100vw));
+  }
+  &::before {
+    @include pseudo;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: url('../img/skazka/guest/bg.png');
+    background-repeat: repeat-x;
+    background-size: 760px;
+    background-position: left bottom;
+  }
+  &::after {
+    @include pseudo;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 660px;
+    height: 572px;
+    background-image: url('../img/skazka/svg/bg-sun.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom right;
+  }
+  &__container {
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+  }
+  img {
+    position: absolute;
+  }
+  // .guest__scene
+  &__scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    &::after {
+      @include pseudo;
+      position: absolute;
+      left: 35%;
+      bottom: 122px;
+      width: 765px;
+      height: 640px;
+      background-image: url('../img/skazka/guest/bg-flowers.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+  }
+  &__grass {
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    object-fit: fill;
+    @include big-desktop {
+      object-fit: cover;
+      width: 100%;
+    }
+    &--front {
+      height: 96px;
+      z-index: 20;
+    }
+    &--back {
+      height: 183px;
+      z-index: 1;
+    }
+  }
+  // .guest__cather
+  &__cather {
+    width: 173px;
+    top: 0;
+    @include adaptiv-value('width', 173, 95, 1);
+    @include adaptiv-value('left', 143, 0, 1);
+  }
+  // .guest__sun
+  &__sun {
+    width: 349px;
+    top: -9px;
+    right: 8.4%;
+    @include mobile {
+      display: none;
+    }
+  }
+  // .guest__moose
+  &__moose {
+    @include adaptiv-value('width', 659, 414, 1);
+    @include adaptiv-value('bottom', 244, 60, 1);
+    @include adaptiv-value('left', -380, -183, 1);
+    transform: rotate(28deg);
+    @include mobile {
+      transform: rotate(0);
+    }
+  }
+  // .guest__pram
+  &__pram {
+    @include adaptiv-value('width', 694, 393, 1);
+    @include adaptiv-value('bottom', 0, 15, 1);
+    @include adaptiv-value('left', -200, -56, 1);
+  }
+  // .guest__pad
+  &__pad {
+    @include adaptiv-value('width', 248, 156, 1);
+    @include adaptiv-value('bottom', 23, 25, 1);
+    @include adaptiv-value('right', 482, 348, 1);
+  }
+  // .guest__fox
+  &__fox {
+    @include adaptiv-value('width', 270, 160, 1);
+    @include adaptiv-value('bottom', 100, 62, 1);
+    @include adaptiv-value('right', 475, 343, 1);
+    transform: rotateY(180deg) rotate(9deg);
+  }
+  // .guest__bird
+  &__bird {
+    @include adaptiv-value('width', 166, 106, 1);
+    @include adaptiv-value('bottom', 460, 267, 1);
+    @include adaptiv-value('right', 500, 541, 1);
+    transform: rotate(-7.6deg);
+  }
+  // .guest__hare
+  &__hare {
+    @include adaptiv-value('width', 261, 200, 1);
+    @include adaptiv-value('bottom', 540, 360, 1);
+    @include adaptiv-value('right', 10, -10, 1);
+    transform: rotate(54deg);
+  }
+  &__clouds {
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+  // .guest__cloud
+  &__cloud {
+  }
+  // .guest__cloud--left
+  &__cloud--left {
+    top: 54px;
+    @include adaptiv-value('left', 240, 20, 1);
+    background-image: url('../img/skazka/svg/bg-cloud-02.svg');
+  }
+  // .guest__cloud--right
+  &__cloud--right {
+    @include adaptiv-value('right', 36, 20, 1);
+    @include adaptiv-value('bottom', 179, 140, 1);
+    background-image: url('../img/skazka/svg/bg-cloud-03.svg');
+    @include small-tablet {
+      opacity: 0;
+      right: -100%;
+    }
+  }
+  &.aos-animate {
+    .guest__wrapper {
+      animation-name: guestTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 2));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      will-change: transform;
+    }
+    // .guest__moose
+    .guest__moose {
+      animation-name: mooseGuestTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 8));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    // .guest__pram
+    .guest__pram {
+      animation-name: pramGuestTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 8));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    // .guest__fox
+    .guest__fox {
+      animation-name: foxGuestTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 8));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    // .guest__bird
+    .guest__bird {
+      animation-name: birdGuestTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 8));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    // .guest__hare
+    .guest__hare {
+      animation-name: hareGuestTranslate;
+      animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 8));
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    .guest__cloud--right {
+      @include small-tablet {
+        animation-name: cloudTranslate;
+        animation-duration: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 10));
+        animation-delay: calc(var(--animation-duration-index) * (var(--animation-duration-scene) / 5));
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+@keyframes guestTranslate {
+  to {
+    transform: translateX(calc(-100% + 100vw));
+  }
+}
+@keyframes mooseGuestTranslate {
+  to {
+    transform: translate(205px, 0px) rotate(14deg);
+  }
+}
+@keyframes pramGuestTranslate {
+  to {
+    transform: translate(185px, 20px) rotate(-7deg);
+  }
+}
+@keyframes foxGuestTranslate {
+  to {
+    transform: translateY(-20px) rotateY(180deg) rotate(0);
+  }
+}
+@keyframes birdGuestTranslate {
+  to {
+    transform: translate(-70px, -70px) rotate(-7.6deg);
+  }
+}
+@keyframes hareGuestTranslate {
+  to {
+    transform: rotate(37deg);
+  }
+}
+@keyframes cloudTranslate {
+  to {
+    right: 20px;
+    opacity: 1;
+  }
+}

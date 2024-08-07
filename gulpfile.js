@@ -242,7 +242,10 @@ const htmlInclude = () => {
       basepath: '@file'
     }))
     .pipe(typograf({
-      locale: ['ru', 'en-US']
+      locale: ['ru', 'en-US'],
+      safeTags: [
+        ['<p class="animals__subtext">', '</p>'],
+      ],
     }))
     .pipe(dest(buildFolder))
     .pipe(browserSync.stream());

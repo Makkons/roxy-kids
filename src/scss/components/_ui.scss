@@ -1,0 +1,165 @@
+.title {
+  font-family: var(--second-family);
+  @include adaptiv-font(32, 24, 1);
+  font-weight: 400;
+  text-align: center;
+}
+
+.cloud {
+  position: absolute;
+  width: 100%;
+  @include adaptiv-value('max-width', 600, 320, 1);
+  background-image: url('../img/skazka/svg/bg-cloud-01.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: 1000;
+  @include mobile {
+    background-image: url('../img/skazka/svg/bg-cloud-01-mobile.svg');
+  }
+  // .cloud__text
+  &__text {
+    @include adaptiv-font(24, 16, 1);
+    padding-top: 20%;
+    padding-left: 20%;
+    padding-right: 18%;
+    padding-bottom: 18%;
+    display: block;
+    margin: 0;
+    span {
+      @include adaptiv-font(73, 30, 1);
+      font-family: var(--third-family);
+      color: var(--accent-color);
+      line-height: 0;
+    }
+  }
+}
+
+.clouds {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+  &__image {
+    position: absolute;
+    z-index: 1;
+    &--left {
+      left: 0;
+      width: 552px;
+      @include mobile {
+        min-width: 403px;
+      }
+    }
+    &--center {
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      width: 953px;
+      @include mobile {
+        min-width: 403px;
+      }
+    }
+    &--right {
+      right: 0;
+      width: 494px;
+      @include mobile {
+        min-width: 403px;
+      }
+    }
+  }
+}
+
+.aos-animate .clouds {
+   &__image {
+    animation-duration: calc(var(--animation-duration-index) * 3400ms);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    &--left {
+      animation-name: transformCloudUp;
+      @include mobile {
+        animation-name: transformCloudLeftMobile;
+      }
+    }
+    &--center {
+      animation-name: transformCloudRight;
+      @include mobile {
+        animation-name: none;
+      }
+    }
+    &--right {
+      animation-name: transformCloudDown;
+      @include mobile {
+        animation-name: transformCloudRightMobile;
+      }
+    }
+  }
+}
+@keyframes transformCloudUp {
+  from {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes transformCloudDown {
+  from {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(20px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes transformCloudRight {
+  from {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(20px);
+  }
+  80% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes transformCloudRightMobile {
+  from {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(20px);
+  }
+  60% {
+    transform: translateY(20px) translateX(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes transformCloudLeftMobile {
+  from {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateX(20px);
+  }
+  60% {
+    transform: translateY(20px) translateX(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

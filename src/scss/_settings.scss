@@ -16,15 +16,17 @@ html {
 
 .page__body {
   margin: 0;
-  min-width: 320px;
+  min-width: 360px;
   min-height: 100%;
   font-size: 16px;
+  color: var(--main-color);
 }
 
 img {
   height: auto;
   max-width: 100%;
   object-fit: cover;
+  display: block;
 }
 
 a {

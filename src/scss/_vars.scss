@@ -2,11 +2,16 @@
 // colors
 :root {
   // base
-  --font-family: "Open Sans", sans-serif;
-  --content-width: 1170px;
-  --container-offset: 15px;
+  --font-family: Tahoma, Verdana, Segoe, sans-serif;
+  --second-family: 'PF DinText Pro', sans-serif;
+  --third-family: 'FK Birch.kz', sans-serif;
+  --content-width: 1440px;
+  --container-offset: 0;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --animation-duration-index: 1;
+  --animation-duration-scene: 20000ms;
 
   // colors
-  --light-color: #fff;
+  --main-color: #2a324d;
+  --accent-color: #b1324f;
 }
