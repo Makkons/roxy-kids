@@ -1,6 +1,7 @@
 # Gulp - сборка MaxGraph
 
 > Используется Gulp 4
+> DEMO: https://makkons.github.io/roxy-kids/
 
 ## Начало работы
 
