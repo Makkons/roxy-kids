@@ -1,6 +1,6 @@
 # Gulp - сборка MaxGraph
 
-> Используется Gulp 4
+> `Используется Gulp 4` <br>
 > DEMO: https://makkons.github.io/roxy-kids/
 
 ## Начало работы
